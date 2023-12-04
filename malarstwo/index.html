@@ -1,0 +1,44 @@
+<html>
+
+<head>
+	<link href='https://fonts.googleapis.com/css?family=Cambay' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
+	<link rel="icon" href="paint.svg">
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script type="text/javascript" src="backgroundscript.js"></script>
+	<script type="text/javascript" src="bingoscript.js"></script>
+	<title>PBingo</title>
+</head>
+
+<body onload="loadBackground(); newPlay();">
+
+	<section>
+		<!-- for background -->
+	</section>
+
+	<div id="container">
+		<div id="header">
+			<h1>Twoja karta BINGO!</h1>
+		</div>
+
+		<div id="content">
+			<table id="bingotable"></table>
+		</div>
+
+		<h3 style="margin-top: 40px">Nie podoba się? Załaduj <a href="#" onclick="anotherCard()">NOWĄ KARTĘ</a></h3>
+
+		<div id="header_text" style="display:none;">
+			<h2>BINGO!
+				<img src="baby.svg" alt=":D" style="width:50px;height:50px;">
+			</h2>
+		</div>
+
+</body>
+
+</html>
+
+
+
+<!-- based on: -->
+<!-- https://codepen.io/koriwade/pen/BoOqGM-->
