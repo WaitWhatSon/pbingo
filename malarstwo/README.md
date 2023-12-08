@@ -8,7 +8,7 @@ ___
 
 ___
 
-👶 podebrane z Discorda 
+👶 emotki podebrane z Discorda 
 
 🥰 kochana uczelnia: [pb.edu.pl](https://pb.edu.pl/)
 
