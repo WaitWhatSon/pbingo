@@ -4,8 +4,8 @@ function createTemplate(obj, section) {
     obj.style.width = size + 'px';
     obj.style.height = size + 'px';
 
-    obj.style.top = (Math.random() * section.clientHeight - 2 * size) + size + 'px';
-    obj.style.left = (Math.random() * section.clientWidth - 2 * size) + size + 'px';
+    obj.style.top = (Math.random() * section.clientHeight - 3 * size) + size + 'px';
+    obj.style.left = (Math.random() * section.clientWidth - 3 * size) + size + 'px';
 
     section.appendChild(obj);
 

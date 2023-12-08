@@ -25,7 +25,15 @@ const texts = [
 	"perspektywa",
 	"[wsadzenie palca w obrazek]",
 	"Wilhelm Sasnal",
-
+	"Szkicowe malarstwo, nie realistyczne, SzKiCoWe",
+	"Ten obraz jest fajny",
+	"Świecące powierzchnie",
+	"To bardzo ciekawa praca",
+	"Zdefiniowana przestrzeń",
+	"KoNtRaSt",
+	"Artyzm",
+	"barwy podstawowe",
+	"wolałem jak wyglądało wcześniej"
 ];
 
 function createWinningIndexesTable()
@@ -61,47 +69,79 @@ function newCard() {
 	let textsCopy = texts.slice();
 	doneSquares.splice(0, doneSquares.length);
 	squaresToDo.splice(0, squaresToDo.length);
+	
+	doneSquares.push("square12");
+
 	setBingoOrNot();
 
 	for(var i=0; i < squaresNum; i++) {
-		textsCopy = setSquare(i, textsCopy);
+		if(i == 12){
+			let square12 = document.getElementById("square12")
+			square12.className = "centerSquare";
+			let img = document.createElement("img");
+			img.src = "photo.jpeg";
+			square12.innerHTML = '';
+			square12.appendChild(img);
+		}
+		// else{
+			textsCopy = setSquare(i, textsCopy);
+		// }
 	}
 
-	localStorage.setItem('squaresToDo', JSON.stringify(squaresToDo));
-	localStorage.setItem('doneSquares', JSON.stringify(doneSquares));
+	localStorage.setItem('squaresToDoM', JSON.stringify(squaresToDo));
+	localStorage.setItem('doneSquaresM', JSON.stringify(doneSquares));
 }
 
 function newPlay() {
 	createBoard()
-	if (localStorage.hasOwnProperty("squaresToDo") 
-	 && localStorage.hasOwnProperty("doneSquares")) 
+	if (localStorage.hasOwnProperty("squaresToDoM") 
+	 && localStorage.hasOwnProperty("doneSquaresM")) 
 	{ 
 		loadLocalStorage();
+		doneSquares.push("square12");
 		setBingoOrNot(); 
 	}
-	else { newCard(); }
+	else { 
+		newCard();
+		doneSquares.push("square12");
+	 }
 }
 
 function loadLocalStorage() {
-	squaresToDo = JSON.parse(localStorage.getItem('squaresToDo'));
-	doneSquares = JSON.parse(localStorage.getItem('doneSquares'));
+	squaresToDo = JSON.parse(localStorage.getItem('squaresToDoM'));
+	doneSquares = JSON.parse(localStorage.getItem('doneSquaresM'));
 
 	for(let i=0; i < squaresNum; i++) {
 		document.getElementById("square"+i).innerHTML = squaresToDo[i];
+
+		if(i == 12){
+			let square12 = document.getElementById("square12")
+			let img = document.createElement("img");
+			img.src = "photo.jpeg";
+			square12.innerHTML = '';
+			square12.appendChild(img);
+			square12.className = "centerSquare";
+		}
 	}
 	for(let i=0; i < doneSquares.length; i++){
 		let element = document.getElementById(doneSquares[i]);
 		element.className = "done";
 	}
+	document.getElementById("square12").className = "centerSquare";
 }
 
 function setSquare(thisSquare, textsCopy) {
 	let currSquare = "square" + thisSquare;
 	let newNum = getRandomInt(0, textsCopy.length-1);
 	let text = textsCopy.splice(newNum, 1);
-
-	document.getElementById(currSquare).innerHTML = text;
-	document.getElementById(currSquare).className = "undone";
+	
+	if(thisSquare == 12){
+		document.getElementById(currSquare).className = "centerSquare";
+	}
+	else{
+		document.getElementById(currSquare).innerHTML = text;
+		document.getElementById(currSquare).className = "undone";
+	}
 
 	squaresToDo.push(text);
 
@@ -117,7 +157,7 @@ function markDoneUndone(id) {
 	if(clas == "undone")	{ markDone(id);   }
 	else					{ markUndone(id); }
 	setBingoOrNot();
-	localStorage.setItem('doneSquares', JSON.stringify(doneSquares));
+	localStorage.setItem('doneSquaresM', JSON.stringify(doneSquares));
 }
 
 function setBingoOrNot()
@@ -133,12 +173,18 @@ function setBingoOrNot()
 }
 
 function markDone(id) {
+	if(id == "square12"){
+		return;
+	}
 	let element = document.getElementById(id);
 	element.className = "done";
 	doneSquares.push(id);
 }
 
 function markUndone(id) {
+	if(id == "square12"){
+		return;
+	}
 	let element = document.getElementById(id);
 	element.className = "undone";
 

@@ -1,3 +1,4 @@
+@media screen and (orientation: portrait) {
   body {
     background: rgb(8, 50, 33);
     display: flex;
@@ -9,37 +10,57 @@
     padding: 0;
   }
 
-  h1,
-  h2,
-  h3 {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 600;
+  #bingotable {
+    cursor: pointer;
     margin: 0 auto;
     text-align: center;
-    padding: 5px;
-    color: white;
-    text-shadow: 0px 0px 20pt #000000, 0px 0px 10pt #000000;
+    width: 90vw;
+    height: 90vw;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0px 0px 20px #000000;
   }
 
   h1 {
-    font-size: 20pt;
-  }
-
-  h1 a,
-  h2 a,
-  h3 a {
-    text-decoration: none;
-    color: #f1c40f;
+    font-size: 9vw;
   }
 
   h2 {
-    font-size: 50pt;
+    font-size: 8vw;
+  }
+
+  h3 {
+    font-size: 5vw;
+    padding-top: 15vw
   }
 
   h2 img {
     filter: drop-shadow(0px 0px 20pt #000000);
     filter: drop-shadow(0px 0px 10pt #000000);
+    width: 9vw;
+    height: 9vw;
+    vertical-align: middle;
   }
+
+  .done,
+  .undone {
+    font-size: x-large;
+  }
+
+}
+
+@media screen and (orientation: landscape) {
+  body {
+    background: rgb(8, 50, 33);
+    display: flex;
+    width: 100vw;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+
 
   #bingotable {
     cursor: pointer;
@@ -52,91 +73,155 @@
     box-shadow: 0px 0px 20px #000000;
   }
 
-  th,
-  td {
-    font-family: Helvetica;
-    font-family: 'Comic Sans MS', sans-serif;
-    font-size: 11pt;
-    margin: 0 auto;
-    text-align: center;
-    border: 3px solid black;
-    width: 20%;
-    height: 20%;
+
+  h1 {
+    font-size: 20pt;
+    padding: 5px;
   }
 
-  .undone {
-
-    background: white;
+  h2 {
+    font-size: 50pt;
+    padding: 5px;
   }
 
-  .done {
-
-    background: #09ad09;
+  h3 {
+    /* font-size: 50pt; */
+    padding-top: 5px;
   }
 
-  .done, .undone {
-    padding-left: 5px;
-    padding-right: 5px;
+  h2 img {
+    filter: drop-shadow(0px 0px 20pt #000000);
+    filter: drop-shadow(0px 0px 10pt #000000);
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
   }
 
 
-  section {
-    margin: 0 auto;
-    text-align: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -100;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
+}
 
+
+h1,
+h2,
+h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  text-shadow: 0px 0px 20pt #000000, 0px 0px 10pt #000000;
+}
+
+h1 a,
+h2 a,
+h3 a {
+  text-decoration: none;
+  color: #f1c40f;
+}
+
+
+th,
+td {
+  font-family: Helvetica;
+  font-family: 'Comic Sans MS', sans-serif;
+  font-size: 11pt;
+  margin: 0 auto;
+  text-align: center;
+  border: 3px solid black;
+  width: 20%;
+  height: 20%;
+}
+
+.undone {
+
+  background: white;
+}
+
+.done {
+
+  background: #09ad09;
+}
+
+.done,
+.undone {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+
+section {
+  margin: 0 auto;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -100;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+
+}
+
+span {
+  position: absolute;
+  pointer-events: none;
+  background: #fff;
+  animation: animate 5s linear infinite;
+}
+
+section img {
+  position: absolute;
+  pointer-events: none;
+  background: none;
+  animation: animate 5s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: scale(0) translateY(0) rotate(0deg);
+    opacity: 0;
   }
 
-  span {
-    position: absolute;
-    pointer-events: none;
-    background: #fff;
-    animation: animate 5s linear infinite;
+  10% {
+    opacity: 1;
   }
 
-  section img {
-    position: absolute;
-    pointer-events: none;
-    background: none;
-    animation: animate 5s linear infinite;
+  90% {
+    opacity: 1;
   }
 
-  @keyframes animate {
-    0% {
-      transform: scale(0) translateY(0) rotate(0deg);
-      opacity: 0;
-    }
-
-    10% {
-      opacity: 1;
-    }
-
-    90% {
-      opacity: 1;
-    }
-
-    100% {
-      transform: scale(1) translateY(-500%) rotate(360deg);
-      opacity: 0;
-    }
+  100% {
+    transform: scale(1) translateY(-500%) rotate(360deg);
+    opacity: 0;
   }
+}
 
 
-  #header_text {
-    display: block;
-    position: absolute;
-    top: calc(50vh - 50px);
-    transform: translateX(50%);
-    padding-left: .5em;
-    padding-right: .5em;
-    margin-left: auto;
-    margin-right: auto;
-    right: 50%;
-  }
+#header_text {
+  display: block;
+  position: absolute;
+  top: calc(50vh - 50px);
+  transform: translateX(50%);
+  padding-left: .5em;
+  padding-right: .5em;
+  margin-left: auto;
+  margin-right: auto;
+  right: 50%;
+}
+
+.centerSquare {
+  background-color: #f1c40f;
+  min-width: 100px;
+  min-height: 100px;
+  max-width: 100px;
+  max-height: 100px;
+  padding: 0;
+  margin: 0;
+}
+
+.centerSquare img {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
