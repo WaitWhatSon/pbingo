@@ -14,4 +14,4 @@ ___
 
 ___
 
-Dzięki Falco za pomoc w zbieraniu haseł 🫶
+Dzięki Falco za pomoc w zbieraniu haseł 🦅
