@@ -163,7 +163,7 @@ section {
 
 }
 
-span {
+section span {
   position: absolute;
   pointer-events: none;
   background: #fff;

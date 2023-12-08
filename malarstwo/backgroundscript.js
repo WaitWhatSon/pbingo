@@ -28,8 +28,31 @@ function createObject(objectImagePath) {
 }
 
 
+var interval1, interval2, interval3;
+
 function loadBackground() {
-    setInterval(() => createObject("PB.svg"), 150);
-    setInterval(() => createObject("paint.svg"), 150);
-    setInterval(() => createObject("brush.svg"), 150);
+    interval1 = setInterval(() => createObject("PB.svg"), 150);
+    interval2 = setInterval(() => createObject("paint.svg"), 150);
+    interval3 = setInterval(() => createObject("brush.svg"), 150);
+}
+
+function stopBackground() {
+    clearInterval(interval1);
+    clearInterval(interval2);
+    clearInterval(interval3);
+
+    // // clear all intervals
+    // for (i = 0; i < 100; i++) {
+    //     window.clearInterval(i);
+    // }
+}
+
+function animationManage() {
+    let checkbox = document.getElementById("animation_checkbox");
+    if (checkbox.checked) {
+        loadBackground();
+    }
+    else {
+        stopBackground();
+    }
 }

@@ -6,12 +6,25 @@
 	<link rel="icon" href="paint.svg">
 	<meta charset="utf-8" />
 	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="switch_style.css" />
 	<script type="text/javascript" src="backgroundscript.js"></script>
 	<script type="text/javascript" src="bingoscript.js"></script>
 	<title>PBingo</title>
 </head>
 
 <body onload="loadBackground(); newPlay();">
+
+	<div id="toggle_background_switch">
+		<div id="toggle_name">animacja
+			<span>
+				<label class="switch">
+					<input type="checkbox" checked id="animation_checkbox" onchange="animationManage()">
+					<span class="slider round">
+					</span>
+				</label>
+			</span>
+		</div>
+	</div>
 
 	<section>
 		<!-- for background -->
